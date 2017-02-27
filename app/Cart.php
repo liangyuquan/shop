@@ -16,4 +16,5 @@ class Cart extends Model
         return $this->hasMany('App\CartItem');
     }
 
+   
 }
