@@ -11,6 +11,5 @@ class MainController extends Controller
     {
         $products = Product::all();
         return view('main.index',['products' => $products]);
-
     }
 }

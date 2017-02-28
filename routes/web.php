@@ -15,8 +15,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 
 Route::get('/', 'MainController@index');
 
-/*// 登陆路由
-Route::get('auth/login', 'Auth\AuthController@getLogin');
+// 登陆路由
+/*Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
@@ -28,3 +28,6 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');*/
 Route::get('/addProduct/{productId}', 'CartController@addItem');
 Route::get('/removeItem/{productId}', 'CartController@removeItem');
 Route::get('/cart', 'CartController@showCart');
+
+//发送邮件
+Route::get('mail/send','MailController@send');

@@ -24,12 +24,22 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     @if(!Auth::user())
-                        <li><a href="/auth/login">登录</a></li>
-                        <li><a href="/auth/register">注册</a></li>
+                        <li><a href="/login">登录</a></li>
+                        <li><a href="/register">注册</a></li>
                     @else
                         <li><a href="/order">我的订单 <span class="fa fa-briefcase"></span></a></li>
                         <li><a href="/cart">购物车 <span class="fa fa-shopping-cart"></span></a></li>
-                        <li><a href="/auth/logout">退出 {{ Auth::user()->name}}</a></li>
+                        <li>
+                           {{-- <a href="/logout">退出 {{ Auth::user()->name}}</a>--}}
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                退出 {{ Auth::user()->name}}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
                     @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
